@@ -16,3 +16,18 @@ Cohete::Cohete(string nombre, int alaIzquierda, int alaDerecha, int tanqueGasoli
 Cohete::~Cohete() {
 	
  }
+void Cohete::setNombreBautizo(string nombre) {
+	nombreBautizo = nombre;
+}
+string Cohete::getNombre() {
+	return nombreBautizo;
+}
+void Cohete::setTanque(int tanque) {
+	tanqueGasolina = tanque;
+}
+void Cohete::setAlaIzquierda(int ala) {
+	alaIzquierda = ala;
+}
+void Cohete::setAlaDerecha(int ala) {
+	alaDerecha = ala;
+}

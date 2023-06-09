@@ -7,7 +7,16 @@
 #include "Cohete.h"
 #include "Marte.h"
 #include "Neptuno.h"
+#include "Saturno.h"
 using namespace std;
+
+void imprimirCohetes(vector<Cohete> cohetes) {
+	for (int i = 0; i < cohetes.size(); i++)
+	{
+		cout << "Posicion: " << i << endl
+			<< "Nombre: " << cohetes[i].getNombre() << endl;
+	}
+}
 int randomNeptuno() {
 	int aleatorio = 1 + rand() % (4 - 1);
 	return aleatorio;
@@ -34,8 +43,8 @@ int main()
 		case 1: {
 			leyoArchivo = true;
 			ifstream archivoCohetes("spaceZ.txt" , ios::in);
-			
 			string texto; 
+			Cohete coheteTemporal;
 			if (archivoCohetes.fail())
 			{
 				cout << "El archivo no se pudo abrir" << endl;
@@ -47,29 +56,30 @@ int main()
 				while (getline(archivoCohetes, texto))
 				{
 					stringstream stream(texto);
-					getline(stream, nombre, ';');
-					getline(stream, strAlaIzquierda, ';');
-					getline(stream, strAlaDerecha, ';');
-					getline(stream, strTanqueGasolina, ';');
-					getline(stream, NombrePlaneta, ';');
-					Cohete coheteTemporal;
-					int alaIzquierda = stoi(strAlaIzquierda), alaDerecha = stoi(strAlaDerecha), tanqueGasolina;
-					coheteTemporal.setAlaIzquierda(alaIzquierda);
-					coheteTemporal.setAlaDerecha(alaDerecha);
-					coheteTemporal.setTanque(tanqueGasolina);
+					getline(stream, nombre, ',');
+					getline(stream, strAlaIzquierda, ',');
+					getline(stream, strAlaDerecha, ',');
+					getline(stream, strTanqueGasolina, ',');
+					getline(stream, NombrePlaneta, ',');
+					coheteTemporal.setNombreBautizo(nombre);
+					coheteTemporal.setAlaIzquierda(stoi(strAlaIzquierda));
+					coheteTemporal.setAlaDerecha(stoi(strAlaDerecha));
+					coheteTemporal.setTanque(stoi(strTanqueGasolina));
+					
 					if (NombrePlaneta == "Marte")
 					{
 						Marte mart(400000);
 					} else if (NombrePlaneta == "Neptuno") {
-						
-						//Neptuno nept(700000);
+						Neptuno nept(900000);
 					}
 					else if (NombrePlaneta == "Saturno") {
-
+						Saturno satur(700000, 30);
 					}
+					cohetesCreados.push_back(coheteTemporal);
 				}
+				imprimirCohetes(cohetesCreados);
 			} 
-
+			cout << "Archivo leido y cohetes cargados correctamente" << endl;
 			archivoCohetes.close();
 			break;
 		}//Leer archivo
