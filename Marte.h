@@ -5,6 +5,6 @@ private:
 	int cantidadGasolina;
 public:
 	Marte();
-	Marte(int);
 	~Marte();
+	int getMinimoGasolina();
 };

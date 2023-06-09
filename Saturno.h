@@ -5,6 +5,7 @@ private:
 	int cantidadGasolina, danioAlas;
 public:
 	Saturno();
-	Saturno(int, int);
 	~Saturno();
+	int getMinimoGasolina();
+	int getDanio();
 };

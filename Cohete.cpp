@@ -5,8 +5,9 @@ Cohete::Cohete() {
 	tanqueGasolina = 0;
 	nombreBautizo = "Sin identificar";
 }
-Cohete::Cohete(string nombre, int alaIzquierda, int alaDerecha, int tanqueGasolina) {
+Cohete::Cohete(string nombre, string destino, int alaIzquierda, int alaDerecha, int tanqueGasolina) {
 	this->nombreBautizo = nombre;
+	this->PlanetaDestino = destino;
 	this->alaIzquierda = alaIzquierda;
 	this->alaDerecha = alaDerecha;
 	this->tanqueGasolina = tanqueGasolina;
@@ -16,6 +17,12 @@ Cohete::Cohete(string nombre, int alaIzquierda, int alaDerecha, int tanqueGasoli
 Cohete::~Cohete() {
 	
  }
+string Cohete::getDestino() {
+	return PlanetaDestino;
+}
+void Cohete::setDestino(string destino) {
+	PlanetaDestino = destino;
+}
 void Cohete::setNombreBautizo(string nombre) {
 	nombreBautizo = nombre;
 }
