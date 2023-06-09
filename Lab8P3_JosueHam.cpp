@@ -105,7 +105,7 @@ int main()
 							}
 						}
 						else {
-							int danioMeteoritos = 20;
+							int danioMeteoritos = 40;
 							int resAlaIzquierda = cuete.getAlaIzquierda(), resAlaDerecha = cuete.getAlaDerecha();
 							cuete.setAlaDerecha(resAlaDerecha - danioMeteoritos);
 							cuete.setAlaIzquierda(resAlaIzquierda - danioMeteoritos);
@@ -129,8 +129,21 @@ int main()
 						}
 					}//Fin marte
 					else if (destino == "Neptuno") {
-
-					}
+						Neptuno planetaNeptuno;
+						int rutaAceptada = randomNeptuno();
+						if (probabilidadAsteroides <= 90)
+						{
+							if (cuete.getTanque() <= planetaNeptuno.getMinimoGasolina())
+							{
+								bitacora << "El cohete " << cuete.getNombre() << " se quedo sin gasolina y no pudo llegar a" << cuete.getDestino() << endl;
+							}
+							else if(rutaAceptada == 2 && cuete.getTanque() >= planetaNeptuno.getMinimoGasolina()) {
+								bitacora << "El cohete " <<  cuete.getNombre() <<  " de manera milagrosa logró llegar a Neptuno";
+							}
+							else {
+								bitacora << "El cohete " << cuete.getNombre() << " se perdio en el silencioso espacio tratando de llegar a Neptuno" << endl;
+						}
+					} //Fin neptuno
 					else if (destino == "Saturno") {
 						Saturno planetaSaturno;
 						if (probabilidadAsteroides <= 50)
@@ -144,11 +157,11 @@ int main()
 							}
 						}
 						else {
-							int danioMeteoritos = 50;
+							int danioMeteoritos = 40;
 							int resAlaIzquierda = cuete.getAlaIzquierda(), resAlaDerecha = cuete.getAlaDerecha();
-							int danio = planetaSaturno.getDanio();
-							cuete.setAlaDerecha(resAlaDerecha - danioMeteoritos - danio);
-							cuete.setAlaIzquierda(resAlaIzquierda - danioMeteoritos - danio);
+							int danioSaturno = planetaSaturno.getDanio();
+							cuete.setAlaDerecha(resAlaDerecha - danioMeteoritos - danioSaturno);
+							cuete.setAlaIzquierda(resAlaIzquierda - danioMeteoritos - danioSaturno);
 							if (cuete.getTanque() <= planetaSaturno.getMinimoGasolina())
 							{
 								bitacora << "El cohete " << cuete.getNombre() << " se quedo sin gasolina y no pudo llegar a" << cuete.getDestino() << endl;
@@ -167,9 +180,11 @@ int main()
 								bitacora << "El cohete " << cuete.getNombre() << " llego con exito a " << cuete.getDestino() << endl;
 							}
 						}
-					}
+					}//Fin saturno
 				}
-			} else {
+			}
+				bitacora.close();
+			} else { //Se leyo el archivo
 				cout << "No se ha leido el archivo" << endl;
 			}
 		}//Guardar archivo

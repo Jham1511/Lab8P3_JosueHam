@@ -17,6 +17,15 @@ Cohete::Cohete(string nombre, string destino, int alaIzquierda, int alaDerecha, 
 Cohete::~Cohete() {
 	
  }
+int Cohete::getTanque() {
+	return tanqueGasolina;
+}
+int Cohete::getAlaDerecha() {
+	return alaDerecha;
+}
+int Cohete::getAlaIzquierda() {
+	return alaIzquierda;
+}
 string Cohete::getDestino() {
 	return PlanetaDestino;
 }
