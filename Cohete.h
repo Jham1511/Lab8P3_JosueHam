@@ -18,5 +18,5 @@ public:
 	void setAlaIzquierda(int);
 	void setAlaDerecha(int);
 	void setTanque(int);
-	void nombreBautizo(string);
+	void setNombreBautizo(string);
 };
