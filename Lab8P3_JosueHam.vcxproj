@@ -129,9 +129,15 @@
   <ItemGroup>
     <ClCompile Include="Cohete.cpp" />
     <ClCompile Include="Lab8P3_JosueHam.cpp" />
+    <ClCompile Include="Marte.cpp" />
+    <ClCompile Include="Neptuno.cpp" />
+    <ClCompile Include="Saturno.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cohete.h" />
+    <ClInclude Include="Marte.h" />
+    <ClInclude Include="Neptuno.h" />
+    <ClInclude Include="Saturno.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
